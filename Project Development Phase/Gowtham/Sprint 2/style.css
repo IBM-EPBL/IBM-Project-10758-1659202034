@@ -1,0 +1,22 @@
+label{
+    display:inline-block;
+    width:200px;
+}
+input:not(#research,#noresearch){
+    width:200;
+    margin:10 ;
+}
+.researchlabel{
+    margin-top: 10;
+}
+#research,#noresearch{
+    margin-top: 7;
+}
+.submit{
+    margin-top: 10;
+}
+.index_body{
+    background-image: url('/assets/university_bgimg.webp');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
