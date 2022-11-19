@@ -1,0 +1,100 @@
+<html>
+    <head>
+        <title>University Admit Predictor</title>
+        <style>
+            label{
+    display:inline-block;
+    width:200px;
+    text-align: left;
+}
+input:not(#research,#noresearch,input[type="submit"]){
+    width:350;
+    font-size: 17px;
+    padding-left:5% ;
+    margin:15 ;
+}
+.researchlabel{
+    margin-top: 10;
+    text-align: left;
+}
+#research,#noresearch{
+    margin-top: 7;
+    text-align: left;
+    margin-left: 20px;
+}
+.submit{
+    margin-top: 30px;
+}
+.raise:hover,.raise:focus {
+  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+  transform: translateY(-0.25em);
+  color: white;
+}
+.index_body{
+    background-image: url('../static/university_bgimg.webp');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    font-size: 18px;
+}
+.border-cls{
+    max-width: fit-content;
+    padding: 10px;
+    margin-left: 7%;
+    width: 60%;
+}
+p{
+    margin-left: 7%;
+}
+.inline-block{
+    display: inline-block;
+}
+.gif-outline{
+    margin-left: 15%;
+}
+.img-hor-flip {
+    -moz-transform: scaleX(-1);
+        -o-transform: scaleX(-1);
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        filter: FlipH;
+        -ms-filter: "FlipH";
+}
+        </style>
+    </head>
+    <body class="index_body">
+        <h1 style="margin-top:40 ;color: blue;text-align: center;">University Admission Prediction System</h1>
+        <p style="margin-bottom:30 ;font-size: 27;margin-top: 40;"><b>Enter your details and get probability of your admission</b></p>
+        <div class="border-cls inline-block">
+            <form action="{{url_for('predict')}}" method="post">
+            <label for="GREscore">Enter GRE Score : </label>
+            <input type="number" id="GREscore" name="GRE Score"  placeholder="GRE Score (1 to 340)" required="required" min="0" max="340"/>
+            <br>
+            <label for="TOEFLscore">Enter TOEFL Score : </label>
+            <input type="number" id="TOEFLscore" name="TOEFL Score" placeholder="TOEFL Score (1 to 120)" required="required" min="0" max="120"/>
+            <br>
+            <label for="rating">Enter University Rating : </label>
+            <input type="number" id="rating" name="University Rating" placeholder="University Rating (1 to 5)" required="required" min="1" max="5"/>
+            <br>
+            <label for="SOP">Enter SOP : </label>
+            <input type="number" id="SOP" name="SOP" placeholder="SOP (1 to 5)" required="required" onkeypress="return check(event,value)" step="0.1" min="1" max="5"/>
+            <br>
+            <label for="LOR">Enter LOR : </label>
+            <input type="number" id="LOR" name="LOR" placeholder="LOR (1 to 5)" required="required" onkeypress="return check(event,value)" step="0.1" min="1" max="5"/>
+            <br>
+            <label for="CGPA">Enter CGPA : </label>
+            <input type="number" id="CGPA" name="CGPA" placeholder="CGPA (1 to 10)" required="required" onkeypress="return check(event,value)" step="0.1" min="1" max="10"/><br>
+            <label for="research" class="researchlabel">Research : </label><br>
+            <input type="radio" id="research" name="research_radio" value="1">
+            <label for="research">Research</label><br>
+            <input type="radio" id="noresearch" name="research_radio" value="0">
+            <label for="noresearch">No Research</label>
+            <div  class="submit">
+            <input type="submit" class="raise" style="width: fit-content;padding: 7px;padding-left: 10%;padding-right: 10%;font-size: 17px;margin-left: 30%;border-radius: 8px;background-color: rgb(247, 161, 0);border-color: orange;" value="Predict"/>
+            </div>
+        </form>
+        </div>
+        <div class="inline-block gif-outline">
+            <img src="../static/search.webp" height="250px" width="350px">
+        </div>
+    </body>
+</html>
